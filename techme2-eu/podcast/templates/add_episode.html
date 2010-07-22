@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+	<meta http-equiv="Content-Language" content="en-us" /> 
+    <link href="/css/podcast.css" type="text/css" rel="stylesheet"></link>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      // Load jQuery and jQueryUi
+      google.load("jquery", "1.4.2");
+      google.load("jqueryui", "1.8.2");
+    </script>
+    
+    <script type="text/javascript">
+      jQuery.fn.slugify = function(obj) {
+      jQuery(this).data('obj', jQuery(obj));
+      jQuery(this).keyup(function() {
+          var obj = jQuery(this).data('obj');
+          var slug = jQuery(this).val().replace(/\s+/g,'-').replace(/[^a-zA-Z0-9\-]/g,'').toLowerCase();
+          obj.val(slug);
+       });
+    }
+    </script>
+    <title>Add Episode</title>
+  </head>
+  <body>
+    <img src="/img/logo_title_white.png"> 
+      {% if slug %}
+        <form action="/admin/{{action}}/{{slug}}/" method="post" enctype="multipart/form-data">
+      {% else %}
+        <form action="/admin/{{action}}/" method="post" enctype="multipart/form-data">
+      {% endif %}
+      {{ form.as_p }}
+      <script>
+        $('#id_title').mouseover(function() {
+          jQuery('#id_title').slugify('#id_slug');
+         });
+      </script>
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

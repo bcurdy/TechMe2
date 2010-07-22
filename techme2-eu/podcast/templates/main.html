@@ -1,0 +1,22 @@
+{% extends "base_podcast.html" %}
+
+{% block page_title %} {{page_title}} {% endblock %}
+{% block post_title %} {{post_title}} {% endblock%}
+{% block header %}<img src="/img/logo_transparent.png"> <b>European Startups</b>{% endblock %}
+{% block menu %}
+        <ul>
+          <li><a href="#">Option 1</a></li>
+          <li><a href="#">Option 2</a></li>
+        </ul>
+      </div>
+{% endblock %}
+
+{% block content %} 
+  {% for episode in episodes %}
+     {% if not episode.is_draft %}
+        {{episode.published_on}} - <a href="/startups/{{episode.slug }}">{{ episode.title }}</a><br>
+        <p id="short_description"> {{episode.short_description}} </p>       
+     {% endif %}
+  {% endfor %}
+
+{% endblock %}

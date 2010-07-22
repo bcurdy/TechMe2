@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+	<meta http-equiv="Content-Language" content="en-us" /> 
+    <link href="/css/podcast.css" type="text/css" rel="stylesheet"></link>
+    <link href=' http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      // Load jQuery and jQueryUi
+      google.load("jquery", "1.4.2");
+      google.load("jqueryui", "1.8.2");
+    </script>
+    {% block jplayer_head %} {% endblock %}   
+    <title>{% block page_title %} {% endblock %}</title>
+  </head>
+  <body>  
+    <div id="header">
+      {% block header %}<img src="/img/logo_transparent.png"> <b>European Startups</b>{% endblock %}
+    </div>
+    <div id="wrap">
+      <div id="nav">
+      {% block menu %}
+        <ul>
+          <li><a href="#">Option 1</a></li>
+          <li><a href="#">Option 2</a></li>
+        </ul>
+      </div>
+      {% endblock %}
+      {% autoescape off %}
+      <div id="post">
+        <h1>{% block post_title %} {% endblock %}</h1>
+        <p><center>{% block jplayer_body %} {% endblock %}</center></p>
+        {% block content %} {% endblock %}
+      {% endautoescape %}
+     </div>
+     <div id="sidebar">
+        <span id="social"><center><p>Subscribe</p><center></span>
+        <img src="/img/rss-57.png">
+        <img src="/img/itunes-57.png">
+        <br>
+       <span id="social"><p>Get in touch!</p><center></span>
+        <img src="/img/twitter-57.png">
+        <img src="/img/facebook-57.png">
+        <br>
+      </div>
+      
+      <div id="footer">
+        footer
+      </div>			
+    </div>
+  </body>
+</html>

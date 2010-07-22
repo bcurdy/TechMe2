@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
 	<meta http-equiv="Content-Language" content="en-us" /> 
     <link href="/css/podcast.css" type="text/css" rel="stylesheet"></link>
-    <link href=' http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+    <link href=' http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
       // Load jQuery and jQueryUi
@@ -13,7 +13,7 @@
       google.load("jqueryui", "1.8.2");
     </script>
     {% block jplayer_head %} {% endblock %}   
-    <title>{% block page_title %} {% endblock %}</title>
+    <title>{% block page_title %}European Startups{% endblock %}</title>
   </head>
   <body>  
     <div id="header">
@@ -28,12 +28,14 @@
         </ul>
       </div>
       {% endblock %}
-      {% autoescape off %}
       <div id="post">
         <h1>{% block post_title %} {% endblock %}</h1>
-        <p><center>{% block jplayer_body %} {% endblock %}</center></p>
-        {% block content %} {% endblock %}
-      {% endautoescape %}
+        <center> {% block jplayer_body %} {% endblock %} </center>
+        {% autoescape off %}
+      <div id="content">
+          {% block content %} {% endblock %}
+      </div>
+        {% endautoescape %}
      </div>
      <div id="sidebar">
         <span id="social"><center><p>Subscribe</p><center></span>

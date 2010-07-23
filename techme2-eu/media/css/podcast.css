@@ -1,3 +1,15 @@
+a {
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
 body {
   margin:0;
   padding:0;
@@ -7,7 +19,37 @@ body {
 body,
 textarea {
   font-family: Georgia, serif;
-  font-size: 14pt;
+  font-size: 13pt;
+}
+
+#content {
+  padding-top:15px;
+}
+
+#content a:hover {
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
+}
+
+#details {
+  margin-top: -15px;
+  margin-left: -2px;
+  margin-bottom: 15px;
+  font-size: 12pt;
+  color: grey;
+}
+
+#details a {
+  text-decoration: none;
+  color: grey;
+  font-weight: normal;
+}
+
+#details a:hover {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
 }
 
 #footer {
@@ -24,11 +66,31 @@ textarea {
   padding-bottom:15px;
   padding-left: 15px;
   padding-right: 15px;
-  font-family: 'Droid Serif', arial, serif;
+  font-family: 'Cardo', arial, serif;
   font-size: 30pt;
   color: white;
 }
 
+#header img {
+  margin-bottom:-4px;
+  margin-left:20px;
+  }
+  
+img {
+  border:none;
+}
+
+#jplayer_playlist a {
+  text-decoration: none;
+  color: #357EC7;
+  font-weight: bold;
+}
+
+#jplayer_playlist a:hover {
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
+}
 
 #nav {
   padding: 10px;
@@ -72,7 +134,7 @@ textarea {
 }
 
 #sidebar {
-  margin-top: 20px;
+  margin-top: 10px;
   float: right;
   width:224px;
 }
@@ -82,7 +144,7 @@ textarea {
 }
 
 #social {
-  font-family: 'Droid Serif', arial, serif;
+  font-family: 'Cardo', arial, serif;
   font-size: 16pt;
   color: #357EC7;
 }

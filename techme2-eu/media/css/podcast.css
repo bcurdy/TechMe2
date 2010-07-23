@@ -1,3 +1,15 @@
+a {
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
 body {
   margin:0;
   padding:0;
@@ -14,6 +26,31 @@ textarea {
   padding-top:15px;
 }
 
+#content a:hover {
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
+}
+
+#details {
+  margin-top: -15px;
+  margin-left: -2px;
+  margin-bottom: 15px;
+  font-size: 12pt;
+  color: grey;
+}
+
+#details a {
+  text-decoration: none;
+  color: grey;
+  font-weight: normal;
+}
+
+#details a:hover {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+}
 
 #footer {
   clear:both;
@@ -38,6 +75,22 @@ textarea {
   margin-bottom:-4px;
   margin-left:20px;
   }
+  
+img {
+  border:none;
+}
+
+#jplayer_playlist a {
+  text-decoration: none;
+  color: #357EC7;
+  font-weight: bold;
+}
+
+#jplayer_playlist a:hover {
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
+}
 
 #nav {
   padding: 10px;

@@ -1,7 +1,7 @@
 # Django settings for podcast project.
 
 import os 
-DEBUG = True 
+DEBUG = False 
 TEMPLATE_DEBUG = DEBUG 
 BASE_PATH = os.path.dirname(__file__) 
 

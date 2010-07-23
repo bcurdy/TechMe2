@@ -1,5 +1,22 @@
 {% extends "base_podcast.html" %}
 
+{% block page_title %} European Startups - {{episode.title}} {% endblock %}
+{% block header %}<a href="/"><img src="/img/logo_transparent.png"></a>{{episode.organization}} {% endblock %}
+{% block menu %}
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+{% endblock %}
+
+{% block post_title %} {{episode.title}} {% endblock %}
+{% block date_comments %} {{episode.published_on}} - <a href="/startups/{{episode.slug}}/#disqus_thread">Comments</a> {% endblock %}
+{% block content %}  {{episode.interview_notes}} {% endblock %}
+
+
+
+<!-- SCRIPTS -->
+
+<!-- JPlayer + AddToAny -->
 {% block jplayer_head %}
 <link href="/css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />     
 <script type="text/javascript" src="/scripts/jquery.jplayer.min.js"></script>
@@ -59,18 +76,51 @@ $(document).ready(function(){
 			<li><a href="{{episode.mp3}}" target="_blank">Download</a> (right click)</li> 
 		</ul> 
 	</div> 
+	<!-- AddToAny BEGIN -->
+    <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=http%3A%2F%2Ftechme2-eu.appspot.com&amp;linkname=European%20Startups"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share/Bookmark"/></a>
+    <script type="text/javascript">
+    var a2a_config = a2a_config || {};
+    a2a_config.linkname = "European Startups";
+    a2a_config.num_services = 6;
+    a2a_config.color_main = "#357EC7";
+    a2a_config.color_border = "AECADB";
+    a2a_config.color_link_text = "333333";
+    a2a_config.color_link_text_hover = "333333";
+    a2a_config.color_arrow_hover = "fff";
+    a2a_config.prioritize = ["twitter", "facebook", "digg", "delicious", "stumbleupon", "reddit"];
+    </script>
+    <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+    <!-- AddToAny END -->
 </div> 
 {% endblock %}
 
-{% block page_title %} European Startups - {{episode.title}} {% endblock %}
-{% block header %}<img src="/img/logo_transparent.png"> {{episode.organization}} {% endblock %}
-{% block menu %}
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">Option 2</a></li>
-        </ul>
-      </div>
+
+<!-- Comments via Disqus -->
+{% block comments %} 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /**
+    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+    */
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = 'http://europeanstartups.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=europeanstartups">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
 {% endblock %}
 
-{% block post_title %} {{episode.title}} {% endblock %}
-{% block content %}  {{episode.interview_notes}} {% endblock %}
+{% block disqus %}
+<script type="text/javascript">
+var disqus_shortname = 'europeanstartups';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'http://disqus.com/forums/europeanstartups/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{% endblock %}
+

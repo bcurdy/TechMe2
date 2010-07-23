@@ -20,31 +20,36 @@
       {% block header %}<img src="/img/logo_transparent.png"> <b>European Startups</b>{% endblock %}
     </div>
     <div id="wrap">
+    
       <div id="nav">
       {% block menu %}
         <ul>
-          <li><a href="#">Option 1</a></li>
-          <li><a href="#">Option 2</a></li>
+          <li><a href="/">Home 1</a></li>
         </ul>
-      </div>
       {% endblock %}
+      </div>
+
       <div id="post">
         <h1>{% block post_title %} {% endblock %}</h1>
+        <div id="details">{% block date_comments %} {% endblock %}</div>
         <center> {% block jplayer_body %} {% endblock %} </center>
         {% autoescape off %}
       <div id="content">
           {% block content %} {% endblock %}
       </div>
         {% endautoescape %}
+        {% block comments %} {% endblock %}
      </div>
      <div id="sidebar">
         <span id="social"><center><p>Subscribe</p><center></span>
         <img src="/img/rss-57.png">
-        <img src="/img/itunes-57.png">
+        <a href="http://itunes.apple.com/us/podcast/european-startups-news/id371305522" target="_blank">
+          <img src="/img/itunes-57.png"></a>
         <br>
        <span id="social"><p>Get in touch!</p><center></span>
-        <img src="/img/twitter-57.png">
-        <img src="/img/facebook-57.png">
+        <a href="http://twitter.com/bcurdy" target="_blank"><img src="/img/twitter-57.png"><a>
+        <a href="http://www.facebook.com/pages/TechMe2eu/116638375022050">
+          <img src="/img/facebook-57.png"></a>
         <br>
       </div>
       
@@ -52,5 +57,6 @@
         footer
       </div>			
     </div>
+    {% block disqus %} {% endblock %}
   </body>
 </html>

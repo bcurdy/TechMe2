@@ -1,4 +1,3 @@
-import datetime
 from google.appengine.ext.webapp import template
 from google.appengine.ext import db
 
@@ -24,6 +23,7 @@ class Episode(db.Model):
   thumbnail = db.LinkProperty()
   #Finally the show :)
   mp3 = db.LinkProperty(required=True)
+  byte_length = db.IntegerProperty(required=True)
   
   def __unicode__(self):
         return self.slug

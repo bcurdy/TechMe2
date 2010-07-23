@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<rss  version="2.0"> 
+<rss  version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"> 
 
 <channel> 
 <title>European Startups And Entrepreneurs</title> 
-<link>http://www.techineurope.com</link> 
+<link>http://bcurdy.com</link> 
 <description>Discover European Startups And Entrepreneurs</description> 
-<lastBuildDate>{{last_published_on}}</lastBuildDate> 
-<language>en</language> 
-<sy:updatePeriod>hourly</sy:updatePeriod> 
-<sy:updateFrequency>1</sy:updateFrequency> 
+<lastBuildDate>{{last_published_on|date:"D, j M Y"}} 08:00:00 +0000</lastBuildDate> 
+<language>en</language>
+<atom:link href="http://www.bcurdy.com/rss" rel="self" type="application/rss+xml" />
 
-<item> 
-<title>{title}</title> 
-<pubDate>{{published_on}}</pubDate> 
-<dc:creator>bcurdy@techme2.eu (bcurdy)</dc:creator> 
-<description><![CDATA[{{description}}]]></description> 
-<content:encoded><![CDATA[{{content}}]]></content:encoded> 
-</item> 
-
-<copyright>Creative Commons Attribution-Noncommercial-No Derivative Works</copyright> 
-<media:credit role="author">bcurdy</media:credit> 
-<media:rating>nonadult</media:rating> 
-<media:description type="plain">Discover European Startups and Entrepreneurs</media:description> 
+{% for episode in episodes %}
+  {% autoescape off %}
+  <item> 
+  <title>{{episode.title}}</title> 
+  <pubDate>{{episode.published_on|date:"D, j M Y"}} 08:00:00 +0000</pubDate> 
+  <description><![CDATA[{{episode.short_description}}]]></description> 
+  <link>http://www.bcurdy.com/startups/{{episode.slug}}</link>
+  <guid>http://www.bcurdy.com/startups/{{episode.slug}}</guid>
+  <enclosure url="{{episode.mp3}}" length="{{episode.byte_length}}" type="audio/mpeg"/>
+  </item>
+  {% endautoescape %}
+{% endfor %}
 </channel> 
 </rss> 

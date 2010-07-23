@@ -1,4 +1,5 @@
 from podcast.episodes.models import AddEpisode
+from django.Http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from google.appengine.ext import db
@@ -47,5 +48,8 @@ def edit(request, slug):
 def single(request, slug):
   query = db.GqlQuery("SELECT * FROM Episode WHERE slug = :1 ", slug)
   episode = query.get()
+  if not episode:
+    raise Http404
+    
   data_dictionary = {'episode': episode}
   return render_to_response('episode.html', data_dictionary)

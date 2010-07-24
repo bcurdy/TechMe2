@@ -6,10 +6,12 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     (r'^$', 'podcast.episodes.views.main_page'),
+    (r'^rss2$', 'podcast.episodes.feeds.rss'),
+    (r'^startups/interviews/map/$','podcast.episodes.views.map'),
+    (r'^startups/interviews/kml/$','podcast.episodes.views.kml'),
     (r'^startups/(?P<slug>[a-zA-Z0-9_-]+)/$','podcast.episodes.views.single'),
     (r'^admin/add/$','podcast.episodes.views.add'),
     (r'^admin/edit/(?P<slug>[a-zA-Z0-9_-]+)/$','podcast.episodes.views.edit'),
-    (r'^rss2$', 'podcast.episodes.feeds.rss'),
     # Example:
     # (r'^podcast/', include('podcast.foo.urls')),
 

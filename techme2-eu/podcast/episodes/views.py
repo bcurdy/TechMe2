@@ -1,5 +1,5 @@
 from podcast.episodes.models import AddEpisode
-from django.Http import Http404
+from django.http import Http404
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from google.appengine.ext import db
@@ -44,12 +44,23 @@ def edit(request, slug):
                         'action': 'edit',
                         'slug': slug}
      return render_to_response("add_episode.html", data_dictionary)
+ 
+ def kml(request):
+  query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
+  episodes = query.fetch(10)
+  data_dictionary = {'episodes': episodes}
+  return render_to_response('interviews.kml', data_dictionary, mimetype='application/xml')
+ 
+def map(request):
+  query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
+  episodes = query.fetch(10)
+  data_dictionary = {}
+  return render_to_response('map.html', data_dictionary)
   
 def single(request, slug):
   query = db.GqlQuery("SELECT * FROM Episode WHERE slug = :1 ", slug)
   episode = query.get()
   if not episode:
     raise Http404
-    
   data_dictionary = {'episode': episode}
   return render_to_response('episode.html', data_dictionary)

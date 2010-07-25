@@ -1,1 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?> 
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document> 
+    <name>European Startups Interviews</name> 
+    <description>European Entrepreneurs Interviewed on TechMe2</description> 
+    {% for episode in episodes %} 
+    <Placemark> 
+      <name><![CDATA[{{ episode.title }}]]></name> 
+      <description><![CDATA[
+      <b>{{episode.interviewee}}</b><br />
+      {{ episode.short_description }}
+      <br />
+      <a href="/startups/{{episode.slug}}">Listen</a>
+      ]]></description> 
+      <Point> 
+        <coordinates>{{ episode.coordinates }}</coordinates> 
+      </Point> 
+    </Placemark> 
+    {% endfor %} 
+  </Document> 
+</kml> 

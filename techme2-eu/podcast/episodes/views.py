@@ -1,3 +1,4 @@
+import datetime
 from podcast.episodes.models import AddEpisode
 from django.http import Http404
 from django.http import HttpResponseRedirect
@@ -16,6 +17,12 @@ def main_page(request):
                     }
   return render_to_response('main.html', data_dictionary)
     
+def about(request):
+  return render_to_response("about.html", {})
+  
+def contact(request):
+  return render_to_response("contact.html", {})
+  
 def add(request): 
   if request.method == 'POST':
     form = AddEpisode(request.POST)
@@ -45,17 +52,10 @@ def edit(request, slug):
                         'slug': slug}
      return render_to_response("add_episode.html", data_dictionary)
  
- def kml(request):
-  query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
-  episodes = query.fetch(10)
-  data_dictionary = {'episodes': episodes}
-  return render_to_response('interviews.kml', data_dictionary, mimetype='application/xml')
- 
+
 def map(request):
-  query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
-  episodes = query.fetch(10)
-  data_dictionary = {}
-  return render_to_response('map.html', data_dictionary)
+  current_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-00")
+  return render_to_response('map.html', {'refresh_time': current_time})
   
 def single(request, slug):
   query = db.GqlQuery("SELECT * FROM Episode WHERE slug = :1 ", slug)

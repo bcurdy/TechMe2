@@ -16,5 +16,30 @@
         <p id="short_description"> {{episode.short_description}} </p>       
      {% endif %}
   {% endfor %}
+{% endblock %}
 
+{% block load_more %}
+    {% for page in pages %}
+      {% ifequal page 1 %}
+      <input type="button" id="{{page}}" class="my_button" name="More" value="{{page}}" disabled="disabled" />
+      {% else %}
+      <input type="button" id="{{page}}" class="my_button" name="More" value="{{page}}" />    
+      {% endifequal %}
+      
+    {% endfor %}
+
+{% endblock %}    
+
+{% block jplayer_head %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('.my_button').click(function() {
+        $('#content').load("/more/"+$(this).val());
+        $('.my_button').attr("disabled", false);
+        $('#'+$(this).val()).attr("disabled", true);
+      });
+    });
+
+</script>  
 {% endblock %}

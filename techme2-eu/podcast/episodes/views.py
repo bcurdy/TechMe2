@@ -7,16 +7,34 @@ from google.appengine.ext import db
 
 
 def main_page(request):
-  query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
-  episodes = query.fetch(10)
+  count_query = db.GqlQuery("SELECT __key__ FROM Episode WHERE is_draft = False")
+  count_episodes = count_query.count()
+  
+  display = 5
+  if count_episodes < display+1:
+    pages = []
+  else:
+    pages = range(1,(count_episodes/display)+2)
+  
+  display_query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
+  episodes = display_query.fetch(display,0)
   post_title = "Last shows"
  
   data_dictionary = {'page_title': 'European Startups',
                      'post_title': post_title,
                      'episodes': episodes,
+                     'pages': pages,
                     }
   return render_to_response('main.html', data_dictionary)
-    
+
+def more_episodes(request, offset):
+  limit = 5
+  starts = (int(offset)-1)*limit
+  display_query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
+  episodes = display_query.fetch(limit, starts)
+  data_dictionary = {'episodes': episodes}
+  return render_to_response('more.html', data_dictionary)
+
 def about(request):
   return render_to_response("about.html", {})
   

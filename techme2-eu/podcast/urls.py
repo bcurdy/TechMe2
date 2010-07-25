@@ -6,6 +6,7 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     (r'^$', 'podcast.episodes.views.main_page'),
+    (r'^more/(?P<offset>\d+)/$', 'podcast.episodes.views.more_episodes'),
     (r'^rss2$', 'podcast.episodes.feeds.rss'),
     (r'^about/$', 'podcast.episodes.views.about'),
     (r'^contact/$', 'podcast.episodes.views.contact'),

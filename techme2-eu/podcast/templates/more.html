@@ -1,0 +1,6 @@
+  {% for episode in episodes %}
+     {% if not episode.is_draft %}
+        {{episode.published_on}} - <a href="/startups/{{episode.slug }}">{{ episode.title }}</a><br>
+        <p id="short_description"> {{episode.short_description}} </p>       
+     {% endif %}
+  {% endfor %}

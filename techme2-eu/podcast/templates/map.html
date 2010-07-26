@@ -1,0 +1,108 @@
+{% extends "base_podcast.html" %}
+
+{% block page_title %} European Startups - Interviews map {% endblock %}
+{% block header %}<a href="/"><img src="/img/logo_transparent.png"></a>Interview maps {% endblock %}
+
+{% block menu %}
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+{% endblock %}
+
+{% block post_title %} {% endblock %}
+{% block date_comments %} {% endblock %}
+{% block content %}  
+{% endblock %}
+
+
+
+<!-- SCRIPTS -->
+
+<!-- Map Api + AddToAny 
+  Using jplayer spot in header to place js code -->
+
+{% block jplayer_head %}
+<style type="text/css"> 
+  #map_canvas { height: 500px;width: 400px }
+</style>
+
+<script type="text/javascript"> 
+
+var map, iw;
+ 
+function initialize() {
+  var g = google.maps;
+  var myLatlng = new g.LatLng(46.232408,7.358485);
+  var myOptions = {
+    zoom: 3,
+    center: myLatlng,
+    mapTypeId: g.MapTypeId.ROADMAP
+  };
+ 
+  map = new g.Map(
+      document.getElementById("map_canvas"),
+      myOptions);
+ 
+  iw = new g.InfoWindow();
+ 
+  var interviewsLayer = new g.KmlLayer(
+      'http://techme2-eu.appspot.com/startups/interviews.kml?%{{refresh_time}}',
+      {  suppressInfoWindows: true,
+         map: map});
+ 
+  g.event.addListener(interviewsLayer, 'click', function(kmlEvent) {
+    var text = kmlEvent.featureData.description;
+    var pos = kmlEvent.position;
+    showInContentWindow(text, pos);
+  });
+}
+ 
+ function showInContentWindow(text, position) {
+   var g = google.maps;
+//    var sidediv = document.getElementById('content_window');
+//    sidediv.innerHTML = text;
+ 
+  iw.setOptions({
+    content: "<div class='infowindow'>" + text + "<\/div>",
+    position: position,
+    pixelOffset: new g.Size(0, -30) });
+   iw.open(map);
+ }
+ 
+  function loadScript() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.google.com/maps/api/js?sensor=true&callback=initialize";
+    document.body.appendChild(script);
+  }
+  
+  window.onload = loadScript;
+</script>
+{% endblock %} 
+
+{% block jplayer_body %}
+     <div id="map_canvas"></div>
+	<!-- AddToAny BEGIN -->
+    <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=http%3A%2F%2Ftechme2-eu.appspot.com&amp;linkname=European%20Startups"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share/Bookmark"/></a>
+    <script type="text/javascript">
+    var a2a_config = a2a_config || {};
+    a2a_config.linkname = "European Startups";
+    a2a_config.num_services = 6;
+    a2a_config.color_main = "#357EC7";
+    a2a_config.color_border = "AECADB";
+    a2a_config.color_link_text = "333333";
+    a2a_config.color_link_text_hover = "333333";
+    a2a_config.color_arrow_hover = "fff";
+    a2a_config.prioritize = ["twitter", "facebook", "digg", "delicious", "stumbleupon", "reddit"];
+    </script>
+    <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+    <!-- AddToAny END -->
+</div> 
+{% endblock %}
+
+
+<!-- Comments via Disqus -->
+{% block comments %} 
+
+{% endblock %}
+

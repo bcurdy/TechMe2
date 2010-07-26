@@ -54,10 +54,11 @@ textarea {
 
 #footer {
   clear:both;
-  text-align: left;
+  text-align: center;
   font-family: Georgia, serif;
-  font-size: 12pt;
+  font-size: 13pt;
   color: grey;
+  padding-top: 50px;
 }
 
 #header {
@@ -111,13 +112,13 @@ img {
 
 #nav ul {
   margin:0;
-  padding:0;
+  padding-left:0;
   list-style:none;
   }
 #nav li {
   display:inline;
   margin:0;
-  padding:0;
+  padding-right:20px;
   }
 
 

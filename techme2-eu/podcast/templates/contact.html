@@ -1,0 +1,51 @@
+{% extends "base_podcast.html" %}
+
+{% block page_title %} Contact TechMe2.eu {% endblock %}
+{% block header %}<a href="/"><img src="/img/logo_transparent.png"></a> Contact {% endblock %}
+{% block menu %}
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/startups/interviews/map/">Interviews Map</a></li>
+        </ul>
+{% endblock %}
+
+{% block content %}
+<p>Getting in touch is very easy! You can leave a message on this page or use the Twitter or Facebook
+links on the right of the page. If you'd like something more personal, you can also write to
+bcurdy (-random string to fool spam bots-) @techme2.eu </p>
+
+<p>Don't hesitate to start a discussion around any topic related to this site, to suggest guests
+or just to say Hi :) </p>
+
+{% endblock %}
+
+
+<!-- Comments via Disqus -->
+{% block comments %} 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /**
+    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+    */
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = 'http://europeanstartups.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=europeanstartups">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+{% endblock %}
+
+{% block disqus %}
+<script type="text/javascript">
+var disqus_shortname = 'europeanstartups';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'http://disqus.com/forums/europeanstartups/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+{% endblock %}
+

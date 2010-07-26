@@ -14,7 +14,7 @@
   <item> 
   <title>{{episode.title}}</title> 
   <pubDate>{{episode.published_on|date:"D, j M Y"}} 08:00:00 +0000</pubDate> 
-  <description><![CDATA[{{episode.short_description}}]]></description> 
+  <description><![CDATA[{{episode.interview_notes}}]]></description> 
   <link>http://www.bcurdy.com/startups/{{episode.slug}}</link>
   <guid>http://www.bcurdy.com/startups/{{episode.slug}}</guid>
   <enclosure url="{{episode.mp3}}" length="{{episode.byte_length}}" type="audio/mpeg"/>

@@ -15,7 +15,8 @@
     {% block jplayer_head %} {% endblock %}   
     <title>{% block page_title %}European Startups{% endblock %}</title>
   </head>
-  <body>  
+ 
+  <body>
     <div id="header">
       {% block header %}<img src="/img/logo_transparent.png"> <b>European Startups</b>{% endblock %}
     </div>
@@ -38,6 +39,7 @@
           {% block content %} {% endblock %}
       </div>
         {% endautoescape %}
+      {% block load_more %} {% endblock %}
         {% block comments %} {% endblock %}
      </div>
      <div id="sidebar">
@@ -54,7 +56,11 @@
       </div>
       
       <div id="footer">
-        footer
+        <div id="nav">
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li> - </li>
+          <li><a href="/contact/">Contact</a></li>
       </div>			
     </div>
     {% block disqus %} {% endblock %}

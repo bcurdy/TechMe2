@@ -52,6 +52,11 @@ textarea {
   font-weight: normal;
 }
 
+#episode {
+   clear:both;
+   padding-bottom: 40px;
+}
+
 #footer {
   clear:both;
   text-align: center;
@@ -79,6 +84,12 @@ textarea {
   
 img {
   border:none;
+}
+
+img#thumbnail {
+  border:none;
+  padding: 15px;
+  float:left;
 }
 
 #jplayer_playlist a {
@@ -121,6 +132,10 @@ img {
   padding-right:20px;
   }
 
+#more {
+  font-style: italic;
+  clear:both;
+}
 
 #post {
   float:left;
@@ -141,6 +156,7 @@ img {
 }
 
 #short_description {
+  margin-top: 25px;
   font-size: 12pt;
 }
 

@@ -13,15 +13,16 @@ def main_page(request):
   display = 5
   if count_episodes < display+1:
     pages = []
-  else:
+  elif count_episodes%display == 0:
+    pages = range(1,(count_episodes/display)+1)
+  else: 
     pages = range(1,(count_episodes/display)+2)
-  
+    
   display_query = db.GqlQuery("SELECT * FROM Episode ORDER BY published_on DESC")
   episodes = display_query.fetch(display,0)
-  post_title = "Last shows"
  
-  data_dictionary = {'page_title': 'European Startups',
-                     'post_title': post_title,
+  data_dictionary = {'page_title': 'European Startups - Interviews',
+                     'post_title': ' Guests',
                      'episodes': episodes,
                      'pages': pages,
                     }

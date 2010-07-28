@@ -12,22 +12,27 @@
 {% block content %} 
   {% for episode in episodes %}
      {% if not episode.is_draft %}
+        <div id=episode>
         {{episode.published_on}} - <a href="/startups/{{episode.slug }}">{{ episode.title }}</a><br>
-        <p id="short_description"> {{episode.short_description}} </p>       
+         <a href="/startups/{{episode.slug }}"><img src="{{episode.thumbnail}}" id="thumbnail"></a>
+         <p id="short_description">{{episode.short_description}} </p>
+        </div>
      {% endif %}
   {% endfor %}
 {% endblock %}
 
 {% block load_more %}
+    <div id="more">
+    <p>More interviews: 
     {% for page in pages %}
       {% ifequal page 1 %}
       <input type="button" id="{{page}}" class="my_button" name="More" value="{{page}}" disabled="disabled" />
       {% else %}
       <input type="button" id="{{page}}" class="my_button" name="More" value="{{page}}" />    
       {% endifequal %}
-      
     {% endfor %}
-
+     </p>
+     </div>
 {% endblock %}    
 
 {% block jplayer_head %}

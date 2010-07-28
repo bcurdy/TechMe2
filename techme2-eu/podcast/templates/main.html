@@ -5,6 +5,7 @@
 {% block header %}<img src="/img/logo_transparent.png"> <b>Discover European Startups</b>{% endblock %}
 {% block menu %}
         <ul>
+          <li><a href="/about/">About this podcast</a></li>
           <li><a href="/startups/interviews/map/">Interviews Map</a></li>
         </ul>
 {% endblock %}
@@ -26,9 +27,9 @@
     <p>More interviews: 
     {% for page in pages %}
       {% ifequal page 1 %}
-      <input type="button" id="{{page}}" class="my_button" name="More" value="{{page}}" disabled="disabled" />
+      <input type="button" id="{{page}}" class="more_interviews" name="More" value="{{page}}" disabled="disabled" />
       {% else %}
-      <input type="button" id="{{page}}" class="my_button" name="More" value="{{page}}" />    
+      <input type="button" id="{{page}}" class="more_interviews" name="More" value="{{page}}" />    
       {% endifequal %}
     {% endfor %}
      </p>
@@ -39,10 +40,11 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-      $('.my_button').click(function() {
+      $('.more_interviews').click(function() {
         $('#content').load("/more/"+$(this).val());
-        $('.my_button').attr("disabled", false);
+        $('.more_interviews').attr("disabled", false);
         $('#'+$(this).val()).attr("disabled", true);
+        $('html, body').animate({scrollTop:0}, 'slow');
       });
     });
 

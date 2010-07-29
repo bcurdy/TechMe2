@@ -28,7 +28,7 @@ textarea {
 
 #content a:hover {
   text-decoration: none;
-  color: grey;
+  color: #5C5858;
   font-weight: bold;
 }
 
@@ -37,12 +37,12 @@ textarea {
   margin-left: -2px;
   margin-bottom: 15px;
   font-size: 12pt;
-  color: grey;
+  color: #5C5858;
 }
 
 #details a {
   text-decoration: none;
-  color: grey;
+  color: #5C5858;
   font-weight: normal;
 }
 
@@ -57,19 +57,25 @@ textarea {
    padding-bottom: 40px;
 }
 
+span.fadehover {
+	position: relative;
+	padding-right: 30px;
+	padding-top: 8px;
+	}
+
 #footer {
   clear:both;
   text-align: center;
   font-family: Georgia, serif;
   font-size: 13pt;
-  color: grey;
-  padding-top: 50px;
+  color: #5C5858;
 }
 
 #header {
-  background: #357EC7;
+  background: url(/img/header_tile.png); 
+  height: 72px; 
+  border-bottom: 1px solid #3fc6e1;
   padding-top:15px;
-  padding-bottom:15px;
   padding-left: 15px;
   padding-right: 15px;
   font-family: 'Cardo', arial, serif;
@@ -86,34 +92,37 @@ img {
   border:none;
 }
 
+
+img.a {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+        }
+ 
+img.b {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+
 img#thumbnail {
   border:none;
   padding: 15px;
   float:left;
 }
 
-#jplayer_playlist a {
-  text-decoration: none;
-  color: #357EC7;
-  font-weight: bold;
-}
-
-#jplayer_playlist a:hover {
-  text-decoration: none;
-  color: grey;
-  font-weight: bold;
-}
 
 #nav {
   padding: 10px;
   font-family: Georgia, serif;
   font-size: 12pt;
-  color: grey;
+  color: #5C5858;
 }
 
 #nav a {
   text-decoration: none;
-  color: grey;
+  color: #5C5858;
 }
 
 #nav a:hover {
@@ -141,7 +150,7 @@ img#thumbnail {
   float:left;
   padding-left: 25px;
   padding-right: 25px;
-  width: 750px;
+  width: 950px;
   text-align: justify;
 }
 
@@ -152,7 +161,7 @@ img#thumbnail {
 #sidebar {
   margin-top: 10px;
   float: right;
-  width:224px;
+  width:124px;
 }
 
 #short_description {
@@ -160,11 +169,6 @@ img#thumbnail {
   font-size: 12pt;
 }
 
-#social {
-  font-family: 'Cardo', arial, serif;
-  font-size: 16pt;
-  color: #357EC7;
-}
 
 #wrap {
   margin: 0 auto;

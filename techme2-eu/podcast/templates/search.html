@@ -1,0 +1,26 @@
+{% extends "base_podcast.html" %}
+
+{% block content %}
+<div id="cse" style="width: 100%;">Loading</div>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+  google.load('search', '1', {language : 'en'});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('003702704768800486691:qeef0u2nze4');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+    $(".gsc-input").val("{{search_query}}");//insert into search field requested search text
+    $(".gsc-search-button").click();//call button click event, show results   
+  }, true);
+</script>
+<link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
+{% endblock %}
+
+{% block footer %}
+      <div id="footer">
+        <div id = "nav">
+          <ul>
+            <li><a href="/contact/">Contact</a></li>
+          </div>
+       </div>
+{%endblock %}

@@ -2,6 +2,7 @@ import datetime
 from podcast.episodes.models import AddEpisode
 from django.http import Http404
 from django.http import HttpResponseRedirect
+from django.http import HttpRequest
 from django.shortcuts import render_to_response
 from google.appengine.ext import db
 
@@ -75,7 +76,14 @@ def edit(request, slug):
 def map(request):
   current_time = datetime.datetime.now().strftime("%Y-%m-%d-%H-00")
   return render_to_response('map.html', {'refresh_time': current_time})
-  
+ 
+def search(request):
+  if request.POST:
+    search_query = request.POST["q"]
+  else:
+    search_query = ''
+  return render_to_response('search.html',{'search_query': search_query})
+ 
 def single(request, slug):
   query = db.GqlQuery("SELECT * FROM Episode WHERE slug = :1 ", slug)
   episode = query.get()

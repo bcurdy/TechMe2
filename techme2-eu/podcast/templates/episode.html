@@ -2,13 +2,6 @@
 
 {% block page_title %} European Startups - {{episode.title}} {% endblock %}
 {% block header %}<a href="/"><img src="/img/logo_transparent.png"></a>{{episode.organization}} {% endblock %}
-{% block menu %}
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About this podcast</a></li>
-          <li><a href="/startups/interviews/map/">Interviews Map</a></li>
-        </ul>
-{% endblock %}
 
 {% block post_title %} {{episode.title}} {% endblock %}
 {% block date_comments %} {{episode.published_on}} - <a href="/startups/{{episode.slug}}/#disqus_thread">Comments</a> {% endblock %}
@@ -74,10 +67,8 @@ $(document).ready(function(){
 		<div id="jplayer_total_time" class="jp-total-time"></div> 
 	</div> 
 	<div id="jplayer_playlist" class="jp-playlist"> 
-		<ul> 
-			<li><a href="{{episode.mp3}}" target="_blank">Download</a> (right click)</li> 
-		</ul> 
-	</div> 
+	</div> 	 
+			<a href="{{episode.mp3}}" target="_blank">Download</a> (right click)</li>  
 	<!-- AddToAny BEGIN -->
     <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=http%3A%2F%2Ftechme2-eu.appspot.com&amp;linkname=European%20Startups"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share/Bookmark"/></a>
     <script type="text/javascript">

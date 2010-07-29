@@ -5,15 +5,42 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
 	<meta http-equiv="Content-Language" content="en-us" /> 
     <link href="/css/podcast.css" type="text/css" rel="stylesheet"></link>
-    <link href=' http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+    <link href=' http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'></link>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
       // Load jQuery and jQueryUi
       google.load("jquery", "1.4.2");
       google.load("jqueryui", "1.8.2");
     </script>
+    
+    <script type='text/javascript'>
+    $(document).ready(function(){
+    $("img.a").hover(
+      function() {
+      $(this).stop().animate({"opacity": "0"}, "slow");
+      },
+     function() {
+     $(this).stop().animate({"opacity": "1"}, "slow"); 
+     });
+     });
+  </script>
+    
     {% block jplayer_head %} {% endblock %}   
     <title>{% block page_title %}European Startups{% endblock %}</title>
+    
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-17689785-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+  
   </head>
  
   <body>
@@ -24,12 +51,46 @@
     
       <div id="nav">
       {% block menu %}
-        <ul>
-          <li><a href="/">Home 1</a></li>
+         <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About this podcast</a></li>
+          <li><a href="/startups/interviews/map/" style="padding-right: 380px;">Interviews Map</a></li>
+           <li>
+                 <span class="fadehover"> 
+                  <a href="http://feeds.feedburner.com/bcurdy" target="_blank">
+                  <img src="/img/rss-32-bw.png" class="a">
+                  <img src="/img/rss-32.png" class="b">
+                  </a>
+                </span>
+              </li>
+              <li>
+               <span class="fadehover"> 
+                  <a href="http://itunes.apple.com/us/podcast/european-startups-news/id371305522" target="_blank">
+                  <img src="/img/itunes-32-bw.png" class="a">
+                  <img src="/img/itunes-32.png" class="b">
+                  </a>
+                </span>
+            </li>
+            <li>
+              <span class="fadehover"> 
+                   <a href="http://twitter.com/bcurdy" target="_blank">
+                   <img src="/img/twitter-32-bw.png" class="a">                   
+                   <img src="/img/twitter-32.png" class="b">
+                   </a>
+              </span>
+             </li>
+            <li>          
+                  <span class="fadehover"> 
+                     <a href="http://www.facebook.com/pages/TechMe2eu/116638375022050">
+                     <img src="/img/facebook-32-bw.png"  class="a">
+                     <img src="/img/facebook-32.png"  class="b"></a>
+                  </span>
+              </li>
         </ul>
       {% endblock %}
       </div>
-
+      
+     
       <div id="post">
         <h1>{% block post_title %} {% endblock %}</h1>
         <div id="details">{% block date_comments %} {% endblock %}</div>
@@ -39,28 +100,24 @@
           {% block content %} {% endblock %}
       </div>
         {% endautoescape %}
-      {% block load_more %} {% endblock %}
+       {% block load_more %} {% endblock %}
         {% block comments %} {% endblock %}
-     </div>
-     <div id="sidebar">
-        <span id="social"><center><p>Subscribe</p><center></span>
-        <a href="http://feeds.feedburner.com/bcurdy" target="_blank"><img src="/img/rss-57.png"></a>
-        <a href="http://itunes.apple.com/us/podcast/european-startups-news/id371305522" target="_blank">
-          <img src="/img/itunes-57.png"></a>
-        <br>
-       <span id="social"><p>Get in touch!</p><center></span>
-        <a href="http://twitter.com/bcurdy" target="_blank"><img src="/img/twitter-57.png"><a>
-        <a href="http://www.facebook.com/pages/TechMe2eu/116638375022050">
-          <img src="/img/facebook-57.png"></a>
-        <br>
-      </div>
       
+      {% block footer %}
       <div id="footer">
-        <div id="nav">
-        <ul>
-          <li><a href="/contact/">Contact</a></li>
-      </div>			
+        <div id = "nav">
+          <ul>
+            <li><a href="/contact/">Contact</a></li>
+            <li>
+              <form action="/search/" method="post" style="display: inline;">
+              <input type="text" name="q" />
+              <input type="submit" name="search" value="Search" />
+             </form>
+           </li>
+         </div>
+       </div>
     </div>
+    {% endblock %}
     {% block disqus %} {% endblock %}
   </body>
 </html>

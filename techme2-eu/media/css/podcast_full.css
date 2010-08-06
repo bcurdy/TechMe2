@@ -1,0 +1,176 @@
+a {
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+body {
+  margin:0;
+  padding:0;
+  margin-bottom: 25px;
+}
+
+body,
+textarea {
+  font-family: Georgia, serif;
+  font-size: 13pt;
+}
+
+#content {
+  padding-top:15px;
+}
+
+#content a:hover {
+  text-decoration: none;
+  color: #5C5858;
+  font-weight: bold;
+}
+
+#details {
+  margin-top: -15px;
+  margin-left: -2px;
+  margin-bottom: 15px;
+  font-size: 12pt;
+  color: #5C5858;
+}
+
+#details a {
+  text-decoration: none;
+  color: #5C5858;
+  font-weight: normal;
+}
+
+#details a:hover {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+}
+
+#episode {
+   clear:both;
+   padding-bottom: 40px;
+}
+
+span.fadehover {
+	position: relative;
+	padding-right: 30px;
+	padding-top: 8px;
+	}
+
+#footer {
+  clear:both;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 13pt;
+  color: #5C5858;
+}
+
+#header {
+  background: url(/img/header_tile.png); 
+  height: 72px; 
+  border-bottom: 1px solid #3fc6e1;
+  padding-top:15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: 'Cardo', arial, serif;
+  font-size: 30pt;
+  color: white;
+}
+
+#header img {
+  margin-bottom:-4px;
+  margin-left:20px;
+  }
+  
+img {
+  border:none;
+}
+
+
+img.a {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+        }
+ 
+img.b {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+
+img#thumbnail {
+  border:none;
+  padding: 15px;
+  float:left;
+}
+
+
+#nav {
+  padding: 10px;
+  font-family: Georgia, serif;
+  font-size: 12pt;
+  color: #5C5858;
+}
+
+#nav a {
+  text-decoration: none;
+  color: #5C5858;
+}
+
+#nav a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+#nav ul {
+  margin:0;
+  padding-left:0;
+  list-style:none;
+  }
+#nav li {
+  display:inline;
+  margin:0;
+  padding-right:20px;
+  }
+
+#more {
+  font-style: italic;
+  clear:both;
+}
+
+#post {
+  float:left;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 950px;
+  text-align: justify;
+}
+
+#post h1 {
+  font-size: 20pt;
+}
+
+#sidebar {
+  margin-top: 10px;
+  float: right;
+  width:124px;
+}
+
+#short_description {
+  margin-top: 25px;
+  font-size: 12pt;
+}
+
+
+#wrap {
+  margin: 0 auto;
+  width: 1024px;
+	}

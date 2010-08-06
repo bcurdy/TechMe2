@@ -3,11 +3,11 @@
 
 <channel> 
 <title>European Startups And Entrepreneurs</title> 
-<link>http://bcurdy.com</link> 
+<link>http://www.techme2.eu</link> 
 <description>Discover European Startups And Entrepreneurs</description> 
 <lastBuildDate>{{last_published_on|date:"D, j M Y"}} 08:00:00 +0000</lastBuildDate> 
 <language>en</language>
-<atom:link href="http://www.bcurdy.com/rss" rel="self" type="application/rss+xml" />
+<atom:link href="http://www.techme2.eu/rss2" rel="self" type="application/rss+xml" />
 
 {% for episode in episodes %}
   {% autoescape off %}

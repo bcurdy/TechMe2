@@ -1,13 +1,11 @@
 from django.conf.urls.defaults import *
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns('',
     (r'^$', 'podcast.episodes.views.main_page'),
-    (r'^about/$', 'podcast.episodes.views.about'),
-    (r'^contact/$', 'podcast.episodes.views.contact'),
+    (r'^about/$', direct_to_template, {'template': 'about.html'}),
+    (r'^contact/$', direct_to_template, {'template': 'contact.html'}),
+    (r'interview_process', direct_to_template, {'template': 'interview_process.html'}),  
     (r'^more/(?P<offset>\d+)/$', 'podcast.episodes.views.more_episodes'),
     (r'^rss2$', 'podcast.episodes.feeds.rss'),
     (r'^search/$', 'podcast.episodes.views.search'),

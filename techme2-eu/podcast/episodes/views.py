@@ -42,12 +42,6 @@ def more_episodes(request, offset):
   data_dictionary = {'episodes': episodes}
   return render_to_response('more.html', data_dictionary)
 
-def about(request):
-  return render_to_response("about.html", {})
-  
-def contact(request):
-  return render_to_response("contact.html", {})
-  
 def map(request):
   """Display a map of all the shows recorded until now
   

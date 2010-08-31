@@ -48,27 +48,11 @@ function initialize() {
  
   var interviewsLayer = new g.KmlLayer(
       'http://techme2-eu.appspot.com/startups/interviews.kml?%{{refresh_time}}',
-      {  suppressInfoWindows: true,
+      {  suppressInfoWindows: false,
          map: map});
  
-  g.event.addListener(interviewsLayer, 'click', function(kmlEvent) {
-    var text = kmlEvent.featureData.description;
-    var pos = kmlEvent.position;
-    showInContentWindow(text, pos);
-  });
 }
  
- function showInContentWindow(text, position) {
-   var g = google.maps;
-//    var sidediv = document.getElementById('content_window');
-//    sidediv.innerHTML = text;
- 
-  iw.setOptions({
-    content: "<div class='infowindow'>" + text + "<\/div>",
-    position: position,
-    pixelOffset: new g.Size(0, -30) });
-   iw.open(map);
- }
  
   function loadScript() {
     var script = document.createElement("script");

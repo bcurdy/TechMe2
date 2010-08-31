@@ -7,7 +7,6 @@
     <Placemark> 
       <name><![CDATA[{{ episode.title }}]]></name> 
       <description><![CDATA[
-      <b>{{episode.interviewee}}</b><br />
       {{ episode.short_description }}
       <br />
       <a href="/startups/{{episode.slug}}">Listen</a>

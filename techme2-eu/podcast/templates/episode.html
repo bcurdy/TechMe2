@@ -1,7 +1,7 @@
 {% extends "base_podcast.html" %}
 
 {% block page_title %} European Startups - {{episode.title}} {% endblock %}
-{% block header %}<a href="/"><img src="/img/logo_transparent.png"></a>{{episode.organization}} {% endblock %}
+{% block header %}<a href="/"><img src="http://s3-eu-west-1.amazonaws.com/european-startups/images/logo_transparent.png" width="193" height="28"></a>{{episode.organization}} {% endblock %}
 
 {% block post_title %} {{episode.title}} {% endblock %}
 {% block date_comments %} {{episode.published_on}} - <a href="/startups/{{episode.slug}}/#disqus_thread">Comments</a> {% endblock %}
